@@ -24,6 +24,19 @@
             margin-right: auto;
         }
         h1 { color: #f39c12; margin-top: 0; }
+        .cover-container img {
+            max-width: 300px;
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.6);
+            margin: 20px auto;
+            display: block;
+            transition: transform 0.3s;
+        }
+        .cover-container img:hover {
+            transform: scale(1.05);
+        }
         .rr-link {
             display: inline-block;
             background-color: #336699;
@@ -71,6 +84,10 @@
     <div class="header">
         <h1>Nuance Canvas LLC</h1>
         <p>Official Art & Asset Gallery</p>
+        <a href="https://www.royalroad.com/fiction/165036/soot-graft-blood" class="cover-container" target="_blank" title="Read on Royal Road">
+            <img src="Cover.jpg" alt="Cover Art for Soot, Graft, Blood">
+        </a>
+        <br>
         <a href="https://www.royalroad.com/fiction/165036/soot-graft-blood" class="rr-link" target="_blank">
             📖 Read "Soot, Graft, Blood" on Royal Road
         </a>
@@ -184,12 +201,6 @@
                 <img src="Chapter9Image2.jpg" alt="Chapter9Image2.jpg" loading="lazy">
             </a>
             <div class="filename">Chapter9Image2.jpg</div>
-        </div>
-        <div class="gallery-item">
-            <a href="Cover.jpg" target="_blank">
-                <img src="Cover.jpg" alt="Cover.jpg" loading="lazy">
-            </a>
-            <div class="filename">Cover.jpg</div>
         </div>
     </div>
 
