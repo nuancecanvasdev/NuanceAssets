@@ -37,6 +37,13 @@
         .cover-container img:hover {
             transform: scale(1.05);
         }
+        .button-group {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-top: 15px;
+        }
         .rr-link {
             display: inline-block;
             background-color: #336699;
@@ -46,11 +53,28 @@
             border-radius: 5px;
             font-weight: bold;
             font-size: 1.1em;
-            margin-top: 15px;
             transition: background-color 0.3s, transform 0.2s;
         }
         .rr-link:hover {
             background-color: #254b73;
+            transform: scale(1.05);
+        }
+        .music-btn {
+            display: inline-block;
+            background-color: #8c2e2e;
+            color: white;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: 1.1em;
+            border: none;
+            cursor: pointer;
+            font-family: inherit;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+        .music-btn:hover {
+            background-color: #611e1e;
             transform: scale(1.05);
         }
         .gallery {
@@ -81,16 +105,24 @@
 </head>
 <body>
 
+    <audio id="bgMusic" loop>
+        <source src="iron_in_the_silt.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
     <div class="header">
         <h1>Nuance Canvas LLC</h1>
         <p>Official Art & Asset Gallery</p>
         <a href="https://www.royalroad.com/fiction/165036/soot-graft-blood" class="cover-container" target="_blank" title="Read on Royal Road">
             <img src="Cover.jpg" alt="Cover Art for Soot, Graft, Blood">
         </a>
-        <br>
-        <a href="https://www.royalroad.com/fiction/165036/soot-graft-blood" class="rr-link" target="_blank">
-            📖 Read "Soot, Graft, Blood" on Royal Road
-        </a>
+        
+        <div class="button-group">
+            <button id="musicToggle" class="music-btn" onclick="toggleMusic()">🎵 Play 'Iron in the Silt'</button>
+            <a href="https://www.royalroad.com/fiction/165036/soot-graft-blood" class="rr-link" target="_blank">
+                📖 Read "Soot, Graft, Blood"
+            </a>
+        </div>
     </div>
 
     <div class="gallery">
@@ -245,6 +277,23 @@
         Art displayed here is for official publication use.<br><br>
         <i>Privacy note: This site uses GoatCounter, a privacy-friendly analytics tool that only counts basic page views. It does not use cookies, track personal data, or sell your information.</i>
     </div>
+
+    <script>
+        function toggleMusic() {
+            var music = document.getElementById("bgMusic");
+            var btn = document.getElementById("musicToggle");
+            
+            if (music.paused) {
+                music.play();
+                btn.innerHTML = "🔊 Pause Music";
+                btn.style.backgroundColor = "#5c8c2e"; // Turns green when playing
+            } else {
+                music.pause();
+                btn.innerHTML = "🎵 Play 'Iron in the Silt'";
+                btn.style.backgroundColor = "#8c2e2e"; // Returns to red/dark when paused
+            }
+        }
+    </script>
 
     <script data-goatcounter="https://nuancecanvas.goatcounter.com/count"
         async src="//gc.zgo.at/count.js"></script>
